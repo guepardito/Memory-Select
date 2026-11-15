@@ -39,12 +39,12 @@ Empieza en un campo y termina en una ciudad, donde el robot recupera su energía
 
 ```mermaid
 flowchart TD
-    A["Inicio (campo)<br/>zona sin habilidad"] --> B["Ruta A: paredes altas<br/>doble salto"]
-    A --> C["Ruta B: huecos largos<br/>dash"]
-    A --> D["Ruta C: paredes atravesables<br/>teletransporte"]
-    B --> E["Ciudad (final)"]
-    C --> E
-    D --> E
+	A["Inicio (campo)<br/>zona sin habilidad"] --> B["Ruta A: paredes altas<br/>doble salto"]
+	A --> C["Ruta B: huecos largos<br/>dash"]
+	A --> D["Ruta C: paredes atravesables<br/>teletransporte"]
+	B --> E["Ciudad (final)"]
+	C --> E
+	D --> E
 ```
 
 ## 7. Ganar y perder
