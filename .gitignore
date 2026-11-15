@@ -1,0 +1,13 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Copias de seguridad de Blender
+*.blend1
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Builds exportadas
+/builds/
