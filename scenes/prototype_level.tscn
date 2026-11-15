@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bmyh52jaycbrl" path="res://assets/textures/prototype/dark_texture_07.png" id="1_8jvw5"]
 [ext_resource type="Texture2D" uid="uid://bkfv8r7k64vhs" path="res://assets/textures/prototype/dark_texture_06.png" id="2_061g7"]
+[ext_resource type="PackedScene" uid="uid://31q44susct6e" path="res://scenes/PlayerRobot.tscn" id="3_061g7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sfqo4"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -14,10 +15,7 @@ sky_material = SubResource("ProceduralSkyMaterial_sfqo4")
 background_mode = 2
 sky = SubResource("Sky_kvexg")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7s42t"]
-albedo_texture = ExtResource("1_8jvw5")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jsvdy"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8jvw5"]
 albedo_texture = ExtResource("2_061g7")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysf26"]
@@ -25,6 +23,12 @@ albedo_texture = ExtResource("2_061g7")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pet5k"]
 albedo_texture = ExtResource("2_061g7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7s42t"]
+albedo_texture = ExtResource("1_8jvw5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_061g7"]
+albedo_texture = ExtResource("1_8jvw5")
 
 [node name="PrototypeLevel" type="Node3D" unique_id=2037469893]
 
@@ -35,22 +39,33 @@ environment = SubResource("Environment_8jvw5")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1310836282]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-material_override = SubResource("StandardMaterial3D_7s42t")
-size = Vector3(20, 1, 20)
-
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2035891961]
-transform = Transform3D(-0.6600161, -0.40578654, 0.63223106, -2.3610593e-08, 0.8415705, 0.54014736, -0.75125146, 0.35650596, -0.5554501, 7.0005913, 4.5228844, -1.7659632)
+transform = Transform3D(-0.6600161, -0.40578654, 0.63223106, -2.3610593e-08, 0.8415705, 0.54014736, -0.75125146, 0.35650596, -0.5554501, 5.8798227, 4.594662, -3.4580388)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=280726900]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-material_override = SubResource("StandardMaterial3D_jsvdy")
+[node name="Cajas" type="Node" parent="." unique_id=366492681]
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=440579143]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Cajas" unique_id=280726900]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 3.1077232)
+material_override = SubResource("StandardMaterial3D_8jvw5")
+use_collision = true
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Cajas" unique_id=440579143]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6300445, 0.5, -2.7580094)
 material_override = SubResource("StandardMaterial3D_ysf26")
+use_collision = true
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=1281935738]
+[node name="CSGBox3D4" type="CSGBox3D" parent="Cajas" unique_id=1281935738]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.834271, 0.5, -7.6483793)
 material_override = SubResource("StandardMaterial3D_pet5k")
+use_collision = true
+
+[node name="MundoPlano" type="CSGBox3D" parent="." unique_id=1310836282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_7s42t")
+use_collision = true
+size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_061g7")
+
+[node name="PlayerRobot" parent="." unique_id=549566771 instance=ExtResource("3_061g7")]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=432668746]
